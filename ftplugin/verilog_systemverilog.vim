@@ -70,10 +70,10 @@ let &cpoptions=oldcpo
 unlet oldcpo
 
 " Raise warning if smartindent is defined
-if &smartindent
-    echohl WarningMsg
-    redraw
-    echo "Option 'smartindent' should not be used in Verilog syntax, use 'autoindent' instead."
-endif
+" if &smartindent
+"     echohl WarningMsg
+"     redraw
+"     echo "Option 'smartindent' should not be used in Verilog syntax, use 'autoindent' instead."
+" endif
 
 " vi: set expandtab softtabstop=2 shiftwidth=2:

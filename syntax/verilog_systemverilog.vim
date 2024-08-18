@@ -402,3 +402,29 @@ let b:current_syntax = "verilog_systemverilog"
 let &cpoptions=oldcpo
 
 " vim: sts=4 sw=4
+
+" =============================================================================
+" aignacio: Vim uses highlight groups to color some specific keywords
+" that are parsed. Typing 
+"   :high - will display all the highlight groups and their specific coloring
+" 
+" To understand the highlight group of a specific keyword, put the cursor on
+" top of the keyword and run:
+" 
+"   :echo synIDattr(synID(line('.'), col('.'), 1), 'name') - This will show
+"   which highlight group that keyword is part of
+"
+" Also, so check how each verilog keyword syntax and their groups run:
+"   
+"   :syntax - This will display all keywords and their correspondent groups
+" 
+" Also some explanation why vim might not be able to catch some syn match 
+" > https://vi.stackexchange.com/questions/27504/vim-syntax-partial-match
+" Custom (aignacio) highlight groups to match `bat` previewer
+
+"https://stackoverflow.com/questions/51941545/vim-syntax-highlighting-after
+syntax match verilogModuleName /\v(module>)@<=.*(\w)/hs=s+1
+syntax match verilogImportPkg /\v(import>)@<=.*(\w)/hs=s+1
+hig link verilogModuleName Function 
+hig link verilogImportPkg Identifier 
+hig link verilogLabel  Function 
